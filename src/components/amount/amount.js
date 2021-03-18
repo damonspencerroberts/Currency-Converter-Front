@@ -7,7 +7,10 @@ const Amount = (props) => {
   return (
     <div>
       <AmountInput calculateAmount = {props.calculateAmount} rate = {props.rate} current = {props.current} />
-      <p>Converted Amount: {chaSymbol.symbol} {props.convertedAmount}</p>
+      <div className="card__information">
+        <p>Converted Amount: </p> 
+        <p>{chaSymbol.symbol} {props.convertedAmount}</p>
+      </div>
     </div>
   )
 }

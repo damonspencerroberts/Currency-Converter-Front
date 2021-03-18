@@ -1,0 +1,52 @@
+.card {
+  background-color: $card;
+  border-radius: $br;
+  box-shadow: $box;
+  font-size: 1.6rem;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: $bord-line;
+    font-size: 1.2rem;
+  }
+
+  &-sm-padding {
+    padding: 5px;
+  }
+
+  &-border {
+    width: 100%;
+    border-bottom: solid 1px rgba(#777, 0.1);
+  }
+
+  &-amount__input {
+    width: 6.5rem;
+  }
+
+  &-button {
+    padding: $card-pad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      padding: 1rem 3rem;
+      background-color: $red;
+      color: white;
+      border-radius: 4px;
+      font-size: 1.8rem;
+      font-weight: 500;
+      border: none;
+      font-family: $headers-font;
+      cursor: pointer;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+
+}

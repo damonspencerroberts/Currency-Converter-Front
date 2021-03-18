@@ -1,0 +1,15 @@
+.card__information {
+  padding: $card-info-pad;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: .4rem;
+    cursor: pointer;
+  }
+}

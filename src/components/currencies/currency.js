@@ -7,7 +7,7 @@ const Currency = (props) => {
     return <option value={e.base}>{flag !== undefined? flag.emoji : null} {e.base}</option>
   });
   return (
-    <div>
+    <div className="card__information">
       <label for="currency">{props.label}</label>
       <select name="currency" id="currency" onChange = {(e) => props.setChange(e.currentTarget.value)}>
         {options}

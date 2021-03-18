@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = (props) => {
   return (
-    <div>
+    <div className="card-button">
       <button onClick = {props.click}>Save!</button>
     </div>
   )
