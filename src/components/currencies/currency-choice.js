@@ -6,18 +6,12 @@ const CurrencyChoice = (props) => {
     <div>
       <Currency 
         label="Choose a base currency:"
-        gbp = {props.gbp}
-        chf = {props.chf}
-        eur = {props.eur}
-        usd = {props.usd}
+        cur = {props.cur}
         setChange = {props.setCurrent}
       />
       <Currency 
         label="Choose a conversion currency:"
-        gbp = {props.gbp}
-        chf = {props.chf}
-        eur = {props.eur}
-        usd = {props.usd}
+        cur = {props.cur}
         setChange = {props.setChange}
       />
     </div>
