@@ -5,6 +5,7 @@ import Rate from "../components/rate/rate";
 import Amount from "../components/amount/amount";
 import Button from '../components/button/button';
 import Codes from './codes';
+import Spinner from "../components/spinner/spinner";
 import axios from 'axios'
 
 
@@ -16,8 +17,10 @@ const Main = () => {
   const [convertedAmount, setConvertedAmount] = useState(0);
   const [amount, setAmount] = useState(0);
   const [curCurrencies, setCurCurrencies] = useState([{base: "", vals: {}}]);
+  const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
+    setSpinner(true);
     const fetchData = () => {
       const currencyCodes = Codes;
       const promises = currencyCodes.map(e => fetch(`https://api.exchangeratesapi.io/latest?base=${e}`).then(res => res.json()));
@@ -30,6 +33,7 @@ const Main = () => {
             }
           });
           setCurCurrencies(rates);
+          setSpinner(false);
         }).catch((err) => {
           console.log(err)
         });
@@ -99,25 +103,27 @@ const Main = () => {
       <Header 
         content = "Damon's Currency Converter"
       />
-      <Currencies
-        cur = {curCurrencies}
-        setCurrent = {setTheCurrent}
-        setChange = {setTheChange}
-        calculateConversion = {calculateConversion}
-      />
-      <Rate 
-        base = {current}
-        convert = {change}
-        rate = {rate}
-      />
-      <Amount 
-        calculateAmount = {calculateAmount}
-        convertedAmount = {convertedAmount}
-        change = {change}
-        current = {current}
-        rate = {rate}
-      />
-      <Button click = {() => saveTheData()} />
+      {spinner ? <Spinner /> : <div>
+        <Currencies
+          cur = {curCurrencies}
+          setCurrent = {setTheCurrent}
+          setChange = {setTheChange}
+          calculateConversion = {calculateConversion}
+        />
+        <Rate
+          base = {current}
+          convert = {change}
+          rate = {rate}
+        />
+        <Amount
+          calculateAmount = {calculateAmount}
+          convertedAmount = {convertedAmount}
+          change = {change}
+          current = {current}
+          rate = {rate}
+        />
+        <Button click = {() => saveTheData()} />
+      </div>}
     </div>
   )
 }
