@@ -99,7 +99,7 @@ const Main = () => {
   }
 
   return (
-    <div className="card">
+    <div className="card body-margin">
       <Header 
         content = "Damon's Currency Converter"
       />

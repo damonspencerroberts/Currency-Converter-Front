@@ -15,9 +15,35 @@ body {
   background: $bg-color;
   color: $primary;
   font-family: $text-font;
+}
+
+.body-margin {
   margin: $body-margin;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.record {
+  margin: $body-margin-record;
+}
+
+.parent {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $headers-font;
 }

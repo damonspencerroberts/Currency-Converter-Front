@@ -2,7 +2,7 @@
   background-color: $card;
   border-radius: $br;
   box-shadow: $box;
-  font-size: 1.6rem;
+  font-size: $card-font-size;
 
   &-header {
     display: flex;
