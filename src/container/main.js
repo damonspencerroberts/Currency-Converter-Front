@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Header from '../components/header/header';
 import Currencies from "../components/currencies/currency-choice";
 import Rate from "../components/rate/rate";
@@ -7,10 +7,13 @@ import Button from '../components/button/button';
 import Codes from './codes';
 import Spinner from "../components/spinner/spinner";
 import axios from 'axios'
+import { withRouter } from "react-router";
+import { Link } from 'react-router-dom';
 
 
 
-const Main = () => {
+
+const Main = (props) => {
   const [current, setCurrent] = useState("GBP");
   const [change, setChange] = useState("GBP");
   const [rate, setRate] = useState(1);
@@ -89,43 +92,50 @@ const Main = () => {
       }
     );
 
-    console.log(jsonConvertedData);
-
     const post_url = "https://currency-api-rails.herokuapp.com/api/v1/histories";
 
     axios.post(post_url, jsonConvertedData, { headers: { 'Content-Type': 'application/json' } })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setSpinner(false);
+    props.history.push("/records");
   }
 
   return (
-    <div className="card body-margin">
+    <Fragment>
+      <div className="card body-margin">
       <Header 
-        content = "Damon's Currency Converter"
+      content = "Damon's Currency Converter"
       />
       {spinner ? <Spinner /> : <div>
-        <Currencies
-          cur = {curCurrencies}
-          setCurrent = {setTheCurrent}
-          setChange = {setTheChange}
-          calculateConversion = {calculateConversion}
-        />
-        <Rate
-          base = {current}
-          convert = {change}
-          rate = {rate}
-        />
-        <Amount
-          calculateAmount = {calculateAmount}
-          convertedAmount = {convertedAmount}
-          change = {change}
-          current = {current}
-          rate = {rate}
-        />
-        <Button click = {() => saveTheData()} />
-      </div>}
-    </div>
-  )
+            <Currencies
+              cur = {curCurrencies}
+              setCurrent = {setTheCurrent}
+              setChange = {setTheChange}
+              calculateConversion = {calculateConversion}
+            />
+            <Rate
+              base = {current}
+              convert = {change}
+              rate = {rate}
+              />
+            <Amount
+            calculateAmount = {calculateAmount}
+              convertedAmount = {convertedAmount}
+              change = {change}
+              current = {current}
+              rate = {rate}
+              />
+            <Button click = {() => saveTheData()} />
+            </div>}
+      </div>     
+      <div class="head-button">
+        <Link to = "/records" className = "head-button-green">Previous Records</Link>
+      </div>
+    </Fragment>
+    );
 }
-
-export default Main
+        
+        export default withRouter(Main);
+        
+        

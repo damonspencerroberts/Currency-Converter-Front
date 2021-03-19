@@ -1,13 +1,13 @@
 import React from 'react'
 
-const CardProduct = () => {
+const CardProduct = (props) => {
   return (
     <div className="child">
       <div className="card-product">
-          <p>Converted $100 US Dollars</p>
-          <p>To £86 GB Pounds</p>
-          <p>At a rate of 0.86</p>
-          <p>Created Feburary 4th, 2021 at 4:30 am</p>
+          <p>Converted {props.initSymbol}{props.amount} {props.initCur} {props.initFlag}</p>
+          <p>To {props.wantedSymbol}{props.convertedAmount} {props.wantedCur} {props.wantedFlag}</p>
+          <p>At a rate of {props.rate}</p>
+          <p>Created {props.date}</p>
       </div>
     </div>
   )

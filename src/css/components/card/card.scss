@@ -48,5 +48,28 @@
       }
     }
   }
+}
 
+.head-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-green {
+    padding: 1rem 3rem;
+    background-color: $third;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border: none;
+    font-family: $headers-font;
+    cursor: pointer;
+    transition: transform 0.5s;
+    text-decoration: none;
+    margin: 2rem auto;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
 }
