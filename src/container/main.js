@@ -107,7 +107,7 @@ const Main = (props) => {
       <Header 
       content = "Damon's Currency Converter"
       />
-      {spinner ? <Spinner /> : <div>
+      {spinner ? <Spinner /> : <div className="card-body">
             <Currencies
               cur = {curCurrencies}
               setCurrent = {setTheCurrent}

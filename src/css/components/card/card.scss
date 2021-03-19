@@ -3,6 +3,11 @@
   border-radius: $br;
   box-shadow: $box;
   font-size: $card-font-size;
+  height: 420px;
+
+  &-body {
+    padding: 2rem;
+  }
 
   &-header {
     display: flex;
@@ -13,7 +18,7 @@
   }
 
   &-sm-padding {
-    padding: 5px;
+    padding: 8px;
   }
 
   &-border {
